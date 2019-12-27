@@ -13,16 +13,6 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        // appBar: PreferredSize(
-        //     preferredSize: Size.fromHeight(100.0), // here the desired height
-        //     child: AppBar(
-        //       flexibleSpace: Container(
-        //         decoration: BoxDecoration(
-        //             image: DecorationImage(
-        //                 image: AssetImage("images/depan1.png"),
-        //                 fit: BoxFit.fitHeight)),
-        //       ),
-        //     )),
         body: Container(
           padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
           decoration: BoxDecoration(
