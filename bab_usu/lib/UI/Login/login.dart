@@ -8,7 +8,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  void tekantombol() {}
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -99,22 +98,6 @@ class _LoginState extends State<Login> {
                     ],
                   ),
 
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.end,
-                  //   children: <Widget>[
-                  //     Container(
-                  //       margin: EdgeInsets.only(top: 20),
-                  //       child: Text(
-                  //         "Lupa password?",
-                  //         style: TextStyle(
-                  //             fontSize: 18,
-                  //             fontFamily: 'Calibri',
-                  //             color: Colors.black45),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-
                   Container(
                       margin: EdgeInsets.only(top: 30),
                       decoration: new BoxDecoration(
@@ -125,10 +108,6 @@ class _LoginState extends State<Login> {
                                 20.0, // has the effect of softening the shadow
                             spreadRadius:
                                 1.0, // has the effect of extending the shadow
-                            // offset: Offset(
-                            //   10.0, // horizontal, move right 10
-                            //   10.0, // vertical, move down 10
-                            // ),
                           )
                         ],
                       ),
