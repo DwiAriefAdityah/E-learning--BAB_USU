@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'beranda.dart';
+import 'listbaca.dart';
+import 'cari.dart';
+import 'akun.dart';
 
 void main() => runApp(Home());
 
@@ -8,27 +12,74 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final _xAppBar = AssetImage("images/maju.png");
+  int _selectedTabIndex = 0;
+  void _onNavBarTapped(int index) {
+    setState(() {
+      _selectedTabIndex = index;
+    });
+  }
+
+  final _listpage = <Widget>[
+    Beranda(),
+    ListBaca(),
+    Cari(),
+    Akun(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('My Flutter App'),
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(90.0), // here the desired height
+            child: AppBar(
+              flexibleSpace: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                  image: _xAppBar,
+                  fit: BoxFit.fitHeight,
+                )),
+              ),
+              backgroundColor: const Color(0xFF34813d),
+              elevation: 1.0,
+            )),
+        body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/back.jpg"), fit: BoxFit.cover)),
+          child: _listpage[_selectedTabIndex],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 0, // this will be set when a new tab is tapped
-          items: [
+          elevation: 70,
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: new Icon(Icons.home),
-              title: new Text('Home'),
+              backgroundColor: Colors.green,
+              icon: Icon(Icons.home),
+              title: Text('Beranda'),
             ),
             BottomNavigationBarItem(
-              icon: new Icon(Icons.mail),
-              title: new Text('Messages'),
+              icon: Icon(Icons.list),
+              title: Text('List Baca'),
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person), title: Text('Profile'))
+              icon: Icon(Icons.search),
+              title: Text('Cari'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              title: Text('Akun'),
+            )
           ],
+          iconSize: 40,
+          currentIndex: _selectedTabIndex,
+          selectedItemColor: const Color(0xFF34813d),
+          unselectedItemColor: Colors.black38,
+          selectedFontSize: 12,
+          unselectedFontSize: 12,
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.w800),
+          onTap: _onNavBarTapped,
         ),
       ),
     );
