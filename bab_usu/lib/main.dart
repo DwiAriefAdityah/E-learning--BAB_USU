@@ -1,5 +1,6 @@
 import 'package:bab_usu/UI/Halaman/rumah.dart';
 import 'package:bab_usu/UI/Login/login.dart';
+import 'package:bab_usu/UI/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -21,8 +22,8 @@ class MainScreen extends StatelessWidget {
     return StreamBuilder(
       stream: FirebaseAuth.instance.onAuthStateChanged,
       builder: (context, AsyncSnapshot<FirebaseUser> snapshot){
-        // if(snapshot.connectionState == ConnectionState.waiting)
-        //   return SplashPage();
+        if(snapshot.connectionState == ConnectionState.waiting)
+          return SplashPage();
         if(!snapshot.hasData || snapshot.data == null)
           return Login();
         else{
