@@ -1,3 +1,4 @@
+import 'package:bab_usu/utils/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(Home());
@@ -15,6 +16,20 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           title: Text('My Flutter App'),
         ),
+        body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text("Home Page"),
+            RaisedButton(
+              child: Text("Log Out"),
+              onPressed: (){
+                AuthProvider().logOut();
+              },
+            )
+          ],
+        ),
+      ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: 0, // this will be set when a new tab is tapped
           items: [
