@@ -1,3 +1,4 @@
+import 'package:bab_usu/utils/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'Daftar.dart';
 import 'lupapass.dart';
@@ -8,21 +9,19 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  void tekantombol() {}
+  TextEditingController _emailController;
+  TextEditingController _passwordController;
+
   @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController(text: "");
+    _passwordController = TextEditingController(text: "");
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        // appBar: PreferredSize(
-        //     preferredSize: Size.fromHeight(100.0), // here the desired height
-        //     child: AppBar(
-        //       flexibleSpace: Container(
-        //         decoration: BoxDecoration(
-        //             image: DecorationImage(
-        //                 image: AssetImage("images/depan1.png"),
-        //                 fit: BoxFit.fitHeight)),
-        //       ),
-        //     )),
         body: Container(
           padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
           decoration: BoxDecoration(
@@ -47,6 +46,7 @@ class _LoginState extends State<Login> {
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
+                      controller: _emailController,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 0),
                         labelText: 'Email',
@@ -67,6 +67,7 @@ class _LoginState extends State<Login> {
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
+                      controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 0),
@@ -86,7 +87,6 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
@@ -108,37 +108,14 @@ class _LoginState extends State<Login> {
                       ),
                     ],
                   ),
-
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.end,
-                  //   children: <Widget>[
-                  //     Container(
-                  //       margin: EdgeInsets.only(top: 20),
-                  //       child: Text(
-                  //         "Lupa password?",
-                  //         style: TextStyle(
-                  //             fontSize: 18,
-                  //             fontFamily: 'Calibri',
-                  //             color: Colors.black45),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-
                   Container(
                       margin: EdgeInsets.only(top: 30),
                       decoration: new BoxDecoration(
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black26,
-                            blurRadius:
-                                20.0, // has the effect of softening the shadow
-                            spreadRadius:
-                                1.0, // has the effect of extending the shadow
-                            // offset: Offset(
-                            //   10.0, // horizontal, move right 10
-                            //   10.0, // vertical, move down 10
-                            // ),
+                            blurRadius: 20.0,
+                            spreadRadius: 1.0,
                           )
                         ],
                       ),
@@ -150,7 +127,21 @@ class _LoginState extends State<Login> {
                               fontSize: 18.0,
                               fontWeight: FontWeight.w800,
                             )),
-                        onPressed: () {},
+                        onPressed: () async {
+                          if (_emailController.text.isEmpty ||
+                              _passwordController.text.isEmpty) {
+                            print("Email dan Password kosong");
+                            return;
+                          }
+
+                          bool res = await AuthProvider().signInWithEmail(
+                              _emailController.text, _passwordController.text);
+                          if (!res) {
+                            print("Login Failed");
+                          } else {
+                            print("Berhasil");
+                          }
+                        },
                         color: const Color(0xFF34813d),
                         padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
                         shape: RoundedRectangleBorder(
@@ -169,7 +160,6 @@ class _LoginState extends State<Login> {
                                 fontFamily: 'Calibri',
                                 color: Colors.black45),
                           ),
-
                           GestureDetector(
                               child: Text("Daftar!",
                                   style: TextStyle(
@@ -185,7 +175,6 @@ class _LoginState extends State<Login> {
                                       builder: (context) => Daftar()),
                                 );
                               })
-                              
                         ],
                       )),
                 ],
