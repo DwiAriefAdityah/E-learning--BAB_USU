@@ -1,4 +1,4 @@
-import 'package:bab_usu/UI/Halaman/rumah.dart';
+import 'package:bab_usu/UI/Halaman/Home.dart';
 import 'package:bab_usu/UI/Login/login.dart';
 import 'package:bab_usu/UI/splash.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +27,7 @@ class MainScreen extends StatelessWidget {
         if(!snapshot.hasData || snapshot.data == null)
           return Login();
         else{
-          return Rumah();
+          return Home();
         }
       },
     );

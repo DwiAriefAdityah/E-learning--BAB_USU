@@ -1,9 +1,8 @@
-import 'package:bab_usu/utils/firebase_auth.dart';
+import 'package:bab_usu/UI/Halaman/akun.dart';
+import 'package:bab_usu/UI/Halaman/beranda.dart';
+import 'package:bab_usu/UI/Halaman/cari.dart';
+import 'package:bab_usu/UI/Halaman/listbaca.dart';
 import 'package:flutter/material.dart';
-import 'beranda.dart';
-import 'listbaca.dart';
-import 'cari.dart';
-import 'akun.dart';
 
 void main() => runApp(Home());
 
@@ -51,20 +50,6 @@ class _HomeState extends State<Home> {
                   image: AssetImage("images/back.jpg"), fit: BoxFit.cover)),
           child: _listpage[_selectedTabIndex],
         ),
-        body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text("Home Page"),
-            RaisedButton(
-              child: Text("Log Out"),
-              onPressed: (){
-                AuthProvider().logOut();
-              },
-            )
-          ],
-        ),
-      ),
         bottomNavigationBar: BottomNavigationBar(
           elevation: 70,
           type: BottomNavigationBarType.fixed,
