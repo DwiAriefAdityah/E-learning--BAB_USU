@@ -3,30 +3,23 @@ import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'login.dart';
 
+enum SingingCharacter { lakilaki, perempuan }
+
 class Daftar extends StatefulWidget {
   @override
   _DaftarState createState() => _DaftarState();
 }
 
 class _DaftarState extends State<Daftar> {
+  SingingCharacter _character = SingingCharacter.lakilaki;
   final format = DateFormat("yyyy-MM-dd");
   void regis() {}
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        // appBar: PreferredSize(
-        //     preferredSize: Size.fromHeight(100.0), // here the desired height
-        //     child: AppBar(
-        //       flexibleSpace: Container(
-        //         decoration: BoxDecoration(
-        //             image: DecorationImage(
-        //                 image: AssetImage("images/depan1.png"),
-        //                 fit: BoxFit.fitHeight)),
-        //       ),
-        //     )),
         body: Container(
-          padding: EdgeInsets.all(30),
+          padding: EdgeInsets.symmetric(horizontal: 30),
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/depan.jpg"), fit: BoxFit.cover)),
@@ -47,7 +40,7 @@ class _DaftarState extends State<Daftar> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
+                    margin: EdgeInsets.only(top: 15),
                     child: TextFormField(
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top:0),
@@ -67,7 +60,7 @@ class _DaftarState extends State<Daftar> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
+                    margin: EdgeInsets.only(top: 15),
                     child: Column(
                       children: <Widget>[
                         DateTimeField(
@@ -100,7 +93,7 @@ class _DaftarState extends State<Daftar> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
+                    margin: EdgeInsets.only(top: 15),
                     child: TextFormField(
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top:0),
@@ -118,6 +111,87 @@ class _DaftarState extends State<Daftar> {
                               color: const Color(0xFF34813d), width: 2.0),
                         ),
                       ),
+                    ),
+                  ),
+                  Container(
+                                        padding: EdgeInsets.symmetric(vertical: 15),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Jenis Kelamin",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.grey,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 10),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                child: Row(
+                                  children: <Widget>[
+                                    Radio(
+                                      focusColor: Colors.grey,
+                                      activeColor: const Color(0xFF34813d),
+                                      value: SingingCharacter.lakilaki,
+                                      groupValue: _character,
+                                      onChanged: (SingingCharacter value) {
+                                        setState(() {
+                                          _character = value;
+                                        });
+                                      },
+                                    ),
+                                    Text(
+                                      'Laki-Laki',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black54,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Container(
+                                child: Row(
+                                  children: <Widget>[
+                                    Radio(
+                                      focusColor: Colors.grey,
+                                      activeColor: const Color(0xFF34813d),
+                                      value: SingingCharacter.perempuan,
+                                      groupValue: _character,
+                                      onChanged: (SingingCharacter value) {
+                                        setState(() {
+                                          _character = value;
+                                        });
+                                      },
+                                    ),
+                                    Text(
+                                      'Perempuan',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.black54,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Container(
@@ -143,22 +217,7 @@ class _DaftarState extends State<Daftar> {
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.only(top: 40),
-                      decoration: new BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius:
-                                10.0, // has the effect of softening the shadow
-                            spreadRadius:
-                                1.0, // has the effect of extending the shadow
-                            // offset: Offset(
-                            //   10.0, // horizontal, move right 10
-                            //   10.0, // vertical, move down 10
-                            // ),
-                          )
-                        ],
-                      ),
+                  margin: EdgeInsets.only(top: 20),   
                       child: RaisedButton(
                         child: Text("Daftar",
                             style: TextStyle(
