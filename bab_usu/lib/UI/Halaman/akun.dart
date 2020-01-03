@@ -12,10 +12,11 @@ class _AkunState extends State<Akun> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: ListView(
         children: <Widget>[
           Container(
+            margin: EdgeInsets.only(top: 10),
             child: Text(
               "Profil",
               style: TextStyle(
@@ -34,7 +35,7 @@ class _AkunState extends State<Akun> {
                   elevation: 0.0,
                   color: Colors.transparent,
                   child: ListTile(
-                    contentPadding: EdgeInsets.symmetric(vertical: 10),
+                    contentPadding: EdgeInsets.symmetric(vertical: 5),
                     title: Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +81,7 @@ class _AkunState extends State<Akun> {
                   elevation: 0.0,
                   color: Colors.transparent,
                   child: ListTile(
-                    contentPadding: EdgeInsets.symmetric(vertical: 10),
+                    contentPadding: EdgeInsets.symmetric(vertical: 5),
                     title: Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,7 +127,7 @@ class _AkunState extends State<Akun> {
                   elevation: 0.0,
                   color: Colors.transparent,
                   child: ListTile(
-                    contentPadding: EdgeInsets.symmetric(vertical: 10),
+                    contentPadding: EdgeInsets.symmetric(vertical: 5),
                     title: Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -172,7 +173,7 @@ class _AkunState extends State<Akun> {
                   elevation: 0.0,
                   color: Colors.transparent,
                   child: ListTile(
-                    contentPadding: EdgeInsets.symmetric(vertical: 10),
+                    contentPadding: EdgeInsets.symmetric(vertical: 5),
                     title: Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,7 +214,7 @@ class _AkunState extends State<Akun> {
                   ),
                 ),
                 Container(
-                    margin: EdgeInsets.only(top: 10),
+                    margin: EdgeInsets.only(top: 10, bottom: 10),
                     child: RaisedButton(
                       elevation: 5,
                       child: Text(
