@@ -43,7 +43,7 @@ class _DaftarState extends State<Daftar> {
                     margin: EdgeInsets.only(top: 15),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(top:0),
+                        contentPadding: EdgeInsets.only(top: 0),
                         labelText: 'Nama',
                         labelStyle: TextStyle(
                             color: Colors.black45,
@@ -65,21 +65,21 @@ class _DaftarState extends State<Daftar> {
                       children: <Widget>[
                         DateTimeField(
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.only(top:0),
-                        labelText: 'Tanggal Lahir',
-                        labelStyle: TextStyle(
-                            color: Colors.black45,
-                            fontStyle: FontStyle.italic,
-                            fontSize: 20),
-                        hintText: "Tanggal Lahir",
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: const Color(0xFF34813d), width: 2.0),
-                        ),
-                      ),
+                            contentPadding: EdgeInsets.only(top: 0),
+                            labelText: 'Tanggal Lahir',
+                            labelStyle: TextStyle(
+                                color: Colors.black45,
+                                fontStyle: FontStyle.italic,
+                                fontSize: 20),
+                            hintText: "Tanggal Lahir",
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.grey),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: const Color(0xFF34813d), width: 2.0),
+                            ),
+                          ),
                           format: format,
                           onShowPicker: (context, currentValue) {
                             return showDatePicker(
@@ -96,7 +96,7 @@ class _DaftarState extends State<Daftar> {
                     margin: EdgeInsets.only(top: 15),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(top:0),
+                        contentPadding: EdgeInsets.only(top: 0),
                         labelText: 'Email',
                         labelStyle: TextStyle(
                             color: Colors.black45,
@@ -114,7 +114,7 @@ class _DaftarState extends State<Daftar> {
                     ),
                   ),
                   Container(
-                                        padding: EdgeInsets.symmetric(vertical: 15),
+                    padding: EdgeInsets.symmetric(vertical: 15),
                     decoration: BoxDecoration(
                       border: Border(
                         bottom: BorderSide(
@@ -199,7 +199,7 @@ class _DaftarState extends State<Daftar> {
                     child: TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(top:0),
+                        contentPadding: EdgeInsets.only(top: 0),
                         labelText: 'Password',
                         labelStyle: TextStyle(
                             color: Colors.black45,
@@ -217,7 +217,7 @@ class _DaftarState extends State<Daftar> {
                     ),
                   ),
                   Container(
-                  margin: EdgeInsets.only(top: 20),   
+                      margin: EdgeInsets.only(top: 20),
                       child: RaisedButton(
                         child: Text("Daftar",
                             style: TextStyle(
