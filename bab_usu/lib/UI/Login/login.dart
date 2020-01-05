@@ -21,6 +21,7 @@ class _LoginState extends State<Login> {
 
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
           padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
