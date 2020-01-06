@@ -8,11 +8,42 @@ class Beranda extends StatefulWidget {
 }
 
 class _BerandaState extends State<Beranda> {
-  List<String> _daftarProdi = [
+ List<String> _daftarProdi = [
     'Ilmu Komputer',
     'Teknologi Informasi',
   ];
+  List<String> _daftarFakultas = [
+    'Fakultas Kedokteran',
+    'Fakultas Hukum',
+    'Fakultas Pertanian',
+    'Fakultas Teknik',
+    'Fakultas Ekonomi',
+    'Fakultas Kedokteran Gigi',
+    'Fakultas Ilmu Budaya',
+    'Fakultas Matematika dan Ilmu Pengetahuan Alam',
+    'Fakultas Ilmu Sosial dan Ilmu Politik',
+    'Fakultas Kesehatan Masyarakat',
+    'Fakultas Keperawatan',
+    'Fakultas Psikologi',
+    'Fakultas Ilmu Komputer dan Teknologi Informasi',
+    'Fakultas Psikologi',
+    'Fakultas Farmasi',
+    'Fakultas Kehutanan',
+  ];
+  List<String> _daftarSemester = [
+    'Semester 1',
+    'Semester 2',
+    'Semester 3',
+    'Semester 4',
+    'Semester 5',
+    'Semester 6',
+    'Semester 7',
+    'Semester 8',
+  ];
   String _prodiTerpilih;
+  String _fakultasTerpilih;
+  String _semesterTerpilih;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -56,18 +87,18 @@ class _BerandaState extends State<Beranda> {
                                 '-Daftar Fakultas-',
                                 textAlign: TextAlign.left,
                               ), // Not necessary for Option 1
-                              value: _prodiTerpilih,
+                              value: _fakultasTerpilih,
                               elevation: 1,
                               onChanged: (newValue) {
                                 setState(() {
-                                  _prodiTerpilih = newValue;
+                                  _fakultasTerpilih = newValue;
                                 });
                               },
-                              items: _daftarProdi.map((prodi) {
+                              items: _daftarFakultas.map((prodi) {
                                 return DropdownMenuItem(
                                   child: Container(
                                     width: MediaQuery.of(context).size.width *
-                                        0.6,
+                                        0.65,
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -137,7 +168,7 @@ class _BerandaState extends State<Beranda> {
                                 return DropdownMenuItem(
                                   child: Container(
                                     width: MediaQuery.of(context).size.width *
-                                        0.6,
+                                        0.65,
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
@@ -195,18 +226,18 @@ class _BerandaState extends State<Beranda> {
                                 '-Daftar Semester-',
                                 textAlign: TextAlign.left,
                               ), // Not necessary for Option 1
-                              value: _prodiTerpilih,
+                              value: _semesterTerpilih,
                               elevation: 1,
                               onChanged: (newValue) {
                                 setState(() {
-                                  _prodiTerpilih = newValue;
+                                 _semesterTerpilih = newValue;
                                 });
                               },
-                              items: _daftarProdi.map((location) {
+                              items: _daftarSemester.map((location) {
                                 return DropdownMenuItem(
                                   child: Container(
                                    width: MediaQuery.of(context).size.width *
-                                        0.6,
+                                        0.65,
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
